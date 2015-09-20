@@ -3,12 +3,17 @@
 	%p= @post.content
 
 	#comments
-		%h2= @post.comments.count
+		%h2
+			= @post.comments.count
+			Comments
 		= render @post.comments
 
 		%h3 Reply to thread
 		= render 'comments/form'
 
-	= link_to "Edit", edit_post_path
-	= link_to "Delete", post_path, method: :delete, data: { confirm: "Are you sure?" }
-	= link_to "Home", root_path
+		%br/
+		%hr/
+		%br/
+
+	= link_to "Edit", edit_post_path, class: "button"
+	= link_to "Delete", post_path, method: :delete, data: { confirm: "Are you sure?" }, class: "button"
